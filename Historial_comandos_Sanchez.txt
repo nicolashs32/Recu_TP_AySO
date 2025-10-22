@@ -1,0 +1,125 @@
+sudo apt install git
+git --version
+ssh-keygen
+cd
+pwd
+git clone git@github.com:nicolashs32/Recu_TP_AySO.git
+cd Recu_TP_AySO
+ls -la
+git status
+git add README
+git status
+git commit -m "primer archivo"
+$ git config --global user.email "nicolashs32.32@gmail.com"
+git config --global user.email "nicolashs32.32@gmail.com"
+git config --global user.name "Nicolas S." 
+git config --global user.name "nicolashs32"
+touch README.md
+git add README.md
+git commit -m "Primer archivo del TP"
+git push origin main
+git push origin main --force
+echo "Este es el README del TP de AySO." > README.md
+git status
+git add README.md
+git commit -m "Agrego contenido final al README"
+git push origin main
+cd
+git clone https://github.com/sofiasartori/UTN-FRA_SO_Examenes
+./UTN-FRA_SO_Examenes/script_Precondicion.sh
+source ~/.bashrc
+cd ~/Recu_TP_AySO
+echo 'sudo mkdir -p /datos/{textos/{libros,revistas},videos/{peliculas,series}}' > Punto_A.sh
+sudo mkdir -p /datos/{textos/{libros,revistas},videos/{peliculas,series}}
+git add Punto_A.sh
+git commit -m "ADD: Punto A.sh - Estructura simétrica"
+git push origin main
+tree datos
+sudo install tree
+sudo apt update
+sudo apt install tree -y
+sudo tree /datos/
+echo 'sudo groupadd p1c1_2024_g1' > Punto_B.sh
+echo 'sudo useradd -m -g p1c1_2024_g1 p1c1_2024_u1' >> Punto_B.sh
+echo 'echo "p1c1_2024_u1:clave1" | sudo chpasswd' >> Punto_B.sh
+echo 'sudo chown -R p1c1_2024_u1:p1c1_2024_g1 /datos' >> Punto_B.sh
+echo 'sudo chmod -R u=rwx,g=rx,o= /datos' >> Punto_B.sh
+echo 'su -c "whoami > /datos/validar1.txt" p1c1_2024_u1' >> Punto_B.sh
+sudo groupadd p1c1_2024_g1
+sudo useradd -m -g p1c1_2024_g1 p1c1_2024_u1
+echo "p1c1_2024_u1:clave1" | sudo chpasswd
+sudo chown -R p1c1_2024_u1:p1c1_2024_g1 /datos
+sudo chmod -R u=rwx,g=rx,o= /datos
+su -c "whoami > /datos/validar1.txt" p1c1_2024_u1
+cat /etc/passwd | grep p1c1_2024_u1
+cat /etc/group | grep p1c1_2024_g1
+sudo ls -ld /datos
+sudo cat /datos/validar1.txt
+git add Punto_B.sh
+git commit -m "ADD: Punto B.sh - Usuarios y permisos basicos"
+git push origin main
+echo 'sudo groupadd p1c1_2024_Todos' > Punto_C.sh
+sudo groupadd p1c1_2024_Todos
+echo 'sudo useradd -m -g p1c1_2024_Todos p1c1_2024_u2' >> Punto_C.sh
+sudo useradd -m -g p1c1_2024_Todos p1c1_2024_u2
+echo 'echo "p1c1_2024_u2:clave1" | sudo chpasswd' >> Punto_C.sh
+echo "p1c1_2024_u2:clave1" | sudo chpasswd
+echo 'sudo usermod -aG p1c1_2024_Todos p1c1_2024_u1' >> Punto_C.sh
+sudo usermod -aG p1c1_2024_Todos p1c1_2024_u1
+echo 'sudo chgrp -R p1c1_2024_Todos /datos' >> Punto_C.sh
+sudo chgrp -R p1c1_2024_Todos /datos
+echo 'sudo chmod -R g+w /datos' >> Punto_C.sh
+sudo chmod -R g+w /datos
+echo 'sudo chmod o=x /datos' >> Punto_C.sh
+sudo chmod o=x /datos
+echo 'sudo chmod o-r /datos/*' >> Punto_C.sh
+sudo chmod o-r /datos/*
+echo 'sudo chmod -R o-r /datos' >> Punto_C.sh
+sudo chmod -R o-r /datos
+echo 'su -c "id >> /datos/validar1.txt" p1c1_2024_u2' >> Punto_C.sh
+su -c "id >> /datos/validar1.txt" p1c1_2024_u2
+git add Punto_C.sh
+git commit -m "ADD: Punto C.sh - Permisos avanzados y grupo Todos"
+git push origin main
+cat /etc/passwd | grep p1c1_2024_u2
+cat /etc/group | grep p1c1_2024_Todos
+sudo ls -l /datos/validar1.txt
+cat /datos/validar1.txt
+sudo cat /datos/validar1.txt
+echo 'mkdir -p ~/Ejercicio_D/{rx/{lote_{1..20},extras_{1..100}},tx/lote_{1..20}}' > Punto_D.sh
+mkdir -p ~/Ejercicio_D/{rx/{lote_{1..20},extras_{1..100}},tx/lote_{1..20}}
+ls ~/Ejercicio_D/rx/
+tree ~/Ejercicio_D/
+tree Ejercicio_D/ --noreport | pr -T -s' ' -w 80 --column 4
+git add Punto_D.sh
+git commit -m "ADD: Punto D.sh - Estructura asimétrica"
+git push origin main
+echo 'mkdir ~/Punto_E' > Punto_E.sh
+echo 'cat /proc/meminfo | grep MemTotal | awk "{print \$2 \$3}" > ~/Punto_E/Filtro_basico.txt' >> Punto_E.sh
+echo 'cat /proc/cpuinfo | grep "model name" | head -1 | awk -F": " "{print \$2}" >> ~/Punto_E/Filtro_basico.txt' >> Punto_E.sh
+mkdir ~/Punto_E
+cat /proc/meminfo | grep MemTotal | awk "{print $2 $3}" > ~/Punto_E/Filtro_basico.txt
+cat /proc/cpuinfo | grep "model name" | head -1 | awk -F": " "{print $2}" >> ~/Punto_E/Filtro_basico.txt
+cat ~/Punto_E/Filtro_basico.txt
+git add Punto_E.sh
+git commit -m "ADD: Punto E.sh - Filtros basicos"
+git push origin main
+echo 'mkdir ~/Punto_F' > Punto_F.sh
+echo 'IP_PUB=$(curl -s ifconfig.me)' >> Punto_F.sh
+echo 'echo "Mi ip publica es: $IP_PUB" > ~/Punto_F/Filtro_Avanzado.txt' >> Punto_F.sh
+echo 'CPU_FULL=$(cat /proc/cpuinfo | grep "model name" | head -1 | awk -F": " "{print \$2}")' >> Punto_F.sh
+echo 'CPU_MODEL=$(echo "$CPU_FULL" | awk -F "@" "{print \$1}")' >> Punto_F.sh
+echo 'CPU_FREQ=$(echo "$CPU_FULL" | awk "{print \$NF}")' >> Punto_F.sh
+echo 'echo "CPU Modelo: $CPU_MODEL Frecuencia: $CPU_FREQ" >> ~/Punto_F/Filtro_Avanzado.txt' >> Punto_F.sh
+mkdir ~/Punto_F
+IP_PUB=$(curl -s ifconfig.me)
+echo "Mi ip publica es: $IP_PUB" > ~/Punto_F/Filtro_Avanzado.txt
+CPU_FULL=$(cat /proc/cpuinfo | grep "model name" | head -1 | awk -F": " '{print $2}')
+CPU_MODEL=$(echo "$CPU_FULL" | awk -F "@" '{print $1}')
+CPU_FREQ=$(echo "$CPU_FULL" | awk '{print $NF}')
+echo "CPU Modelo: $CPU_MODEL Frecuencia: $CPU_FREQ" >> ~/Punto_F/Filtro_Avanzado.txt
+cat ~/Punto_F/Filtro_Avanzado.txt
+git add Punto_F.sh
+git commit -m "ADD: Punto F.sh - Filtros avanzados"
+git push origin main
+history -a
